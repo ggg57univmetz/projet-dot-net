@@ -11,6 +11,8 @@ La plus grosse partie du code se passe dans le Form1. C'est le contrôleur princ
 
 Pour le module complémentaire je pense que le mieux c'est d'ajouter un onglet dans le Form1.
 
+Effectuer les développements complémentaires dans la branche git "develop". On mergera dans Master à la fin.
+
 # Base de donnée
 
 J'ai crée une base de donnée en ligne avec Azure pour qu'on n'ait pas besoin d'une base de donnée locale pour coder.
