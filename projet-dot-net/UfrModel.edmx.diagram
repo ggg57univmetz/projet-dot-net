@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a3796841dad49a68c45e6bd2333e7bd" Name="Diagram1">
+        <EntityTypeShape EntityType="ufrModel.Annee" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.Categorie" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.Composante" Width="1.5" PointX="1.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.Cours" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.Departement" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.Diplome" Width="1.5" PointX="1.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.EC" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.EnseignantCours" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.EquivalentTD" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.Personnel" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.TypeCours" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ufrModel.UE" Width="1.5" PointX="1.5" PointY="18.5" IsExpanded="true" />
+        <AssociationConnector Association="ufrModel.FK_Annee_Diplome" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_EquivalentTD_Categorie" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_Personnel_Categorie" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_Departement_Composante" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_Cours_EC" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_Cours_TypeCours" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_EnseignantCours_Cours" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_Diplome_Departement" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_EC_UE" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_EnseignantCours_Personnel" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.FK_EquivalentTD_TypeCours" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.AnneeUE" ManuallyRouted="false" />
+        <AssociationConnector Association="ufrModel.PersonnelDepartement" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ufrModel.CoursDepartement" Width="1.5" PointX="7.875" PointY="2.625" />
+        <EntityTypeShape EntityType="ufrModel.UEDepartement" Width="1.5" PointX="7.875" PointY="4.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

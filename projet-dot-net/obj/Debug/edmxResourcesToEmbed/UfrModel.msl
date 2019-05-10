@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ufrModelStoreContainer" CdmEntityContainer="ufrEntities">
+    <EntitySetMapping Name="Annee">
+      <EntityTypeMapping TypeName="ufrModel.Annee">
+        <MappingFragment StoreEntitySet="Annee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+          <ScalarProperty Name="diplomeID" ColumnName="diplomeID" />
+          <ScalarProperty Name="ordre" ColumnName="ordre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="ufrModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+          <ScalarProperty Name="nbEQTD" ColumnName="nbEQTD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Composante">
+      <EntityTypeMapping TypeName="ufrModel.Composante">
+        <MappingFragment StoreEntitySet="Composante">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cours">
+      <EntityTypeMapping TypeName="ufrModel.Cours">
+        <MappingFragment StoreEntitySet="Cours">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+          <ScalarProperty Name="nbGroupes" ColumnName="nbGroupes" />
+          <ScalarProperty Name="nbHeures" ColumnName="nbHeures" />
+          <ScalarProperty Name="typeCoursID" ColumnName="typeCoursID" />
+          <ScalarProperty Name="idEC" ColumnName="idEC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departement">
+      <EntityTypeMapping TypeName="ufrModel.Departement">
+        <MappingFragment StoreEntitySet="Departement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="composanteID" ColumnName="composanteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplome">
+      <EntityTypeMapping TypeName="ufrModel.Diplome">
+        <MappingFragment StoreEntitySet="Diplome">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+          <ScalarProperty Name="departementID" ColumnName="departementID" />
+          <ScalarProperty Name="nbAnnees" ColumnName="nbAnnees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EC">
+      <EntityTypeMapping TypeName="ufrModel.EC">
+        <MappingFragment StoreEntitySet="EC">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="abbreviation" ColumnName="abbreviation" />
+          <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
+          <ScalarProperty Name="ueID" ColumnName="ueID" />
+          <ScalarProperty Name="nbHeures" ColumnName="nbHeures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnseignantCours">
+      <EntityTypeMapping TypeName="ufrModel.EnseignantCours">
+        <MappingFragment StoreEntitySet="EnseignantCours">
+          <ScalarProperty Name="idEnseignant" ColumnName="idEnseignant" />
+          <ScalarProperty Name="idCours" ColumnName="idCours" />
+          <ScalarProperty Name="nbHeures" ColumnName="nbHeures" />
+          <ScalarProperty Name="groupe" ColumnName="groupe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquivalentTD">
+      <EntityTypeMapping TypeName="ufrModel.EquivalentTD">
+        <MappingFragment StoreEntitySet="EquivalentTD">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="eqtd" ColumnName="eqtd" />
+          <ScalarProperty Name="typeCoursId" ColumnName="typeCoursId" />
+          <ScalarProperty Name="categorieID" ColumnName="categorieID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personnel">
+      <EntityTypeMapping TypeName="ufrModel.Personnel">
+        <MappingFragment StoreEntitySet="Personnel">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="categorieID" ColumnName="categorieID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCours">
+      <EntityTypeMapping TypeName="ufrModel.TypeCours">
+        <MappingFragment StoreEntitySet="TypeCours">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UE">
+      <EntityTypeMapping TypeName="ufrModel.UE">
+        <MappingFragment StoreEntitySet="UE">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="abbreviation" ColumnName="abbreviation" />
+          <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
+          <ScalarProperty Name="semestre" ColumnName="semestre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AnneeUE" TypeName="ufrModel.AnneeUE" StoreEntitySet="AnneeUE">
+      <EndProperty Name="Annee">
+        <ScalarProperty Name="id" ColumnName="idAnnee" />
+      </EndProperty>
+      <EndProperty Name="UE">
+        <ScalarProperty Name="id" ColumnName="idUE" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonnelDepartement" TypeName="ufrModel.PersonnelDepartement" StoreEntitySet="PersonnelDepartement">
+      <EndProperty Name="Departement">
+        <ScalarProperty Name="id" ColumnName="departementID" />
+      </EndProperty>
+      <EndProperty Name="Personnel">
+        <ScalarProperty Name="id" ColumnName="personnelID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="CoursDepartement">
+      <EntityTypeMapping TypeName="ufrModel.CoursDepartement">
+        <MappingFragment StoreEntitySet="CoursDepartement">
+          <ScalarProperty Name="departementID" ColumnName="departementID" />
+          <ScalarProperty Name="coursID" ColumnName="coursID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UEDepartement">
+      <EntityTypeMapping TypeName="ufrModel.UEDepartement">
+        <MappingFragment StoreEntitySet="UEDepartement">
+          <ScalarProperty Name="departementID" ColumnName="departementID" />
+          <ScalarProperty Name="ueID" ColumnName="ueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

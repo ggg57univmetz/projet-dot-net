@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ufrModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Annee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="intitule" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="diplomeID" Type="int" Nullable="false" />
+    <Property Name="ordre" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnneeUE">
+    <Key>
+      <PropertyRef Name="idAnnee" />
+      <PropertyRef Name="idUE" />
+    </Key>
+    <Property Name="idAnnee" Type="int" Nullable="false" />
+    <Property Name="idUE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="intitule" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="nbEQTD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Composante">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="intitule" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="nbGroupes" Type="smallint" Nullable="false" />
+    <Property Name="nbHeures" Type="int" Nullable="false" />
+    <Property Name="typeCoursID" Type="int" Nullable="false" />
+    <Property Name="idEC" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="composanteID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplome">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="intitule" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="departementID" Type="int" Nullable="false" />
+    <Property Name="nbAnnees" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EC">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="abbreviation" Type="varchar" MaxLength="16" />
+    <Property Name="nomComplet" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="ueID" Type="int" Nullable="false" />
+    <Property Name="nbHeures" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnseignantCours">
+    <Key>
+      <PropertyRef Name="idEnseignant" />
+      <PropertyRef Name="idCours" />
+      <PropertyRef Name="groupe" />
+    </Key>
+    <Property Name="idEnseignant" Type="int" Nullable="false" />
+    <Property Name="idCours" Type="int" Nullable="false" />
+    <Property Name="nbHeures" Type="int" Nullable="false" />
+    <Property Name="groupe" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquivalentTD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eqtd" Type="float" Nullable="false" />
+    <Property Name="typeCoursId" Type="int" Nullable="false" />
+    <Property Name="categorieID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personnel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="categorieID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonnelDepartement">
+    <Key>
+      <PropertyRef Name="personnelID" />
+      <PropertyRef Name="departementID" />
+    </Key>
+    <Property Name="personnelID" Type="int" Nullable="false" />
+    <Property Name="departementID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeCours">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="abbreviation" Type="varchar" MaxLength="16" />
+    <Property Name="nomComplet" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="semestre" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ufr.dbo.CoursDepartement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CoursDepartement">
+    <Key>
+      <PropertyRef Name="coursID" />
+      <PropertyRef Name="departementID" />
+    </Key>
+    <Property Name="coursID" Type="int" Nullable="false" />
+    <Property Name="departementID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ufr.dbo.UEDepartement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UEDepartement">
+    <Key>
+      <PropertyRef Name="ueID" />
+      <PropertyRef Name="departementID" />
+    </Key>
+    <Property Name="ueID" Type="int" Nullable="false" />
+    <Property Name="departementID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Annee_Diplome">
+    <End Role="Diplome" Type="Self.Diplome" Multiplicity="1" />
+    <End Role="Annee" Type="Self.Annee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplome">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Annee">
+        <PropertyRef Name="diplomeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnneeUE_Annee">
+    <End Role="Annee" Type="Self.Annee" Multiplicity="1" />
+    <End Role="AnneeUE" Type="Self.AnneeUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Annee">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnneeUE">
+        <PropertyRef Name="idAnnee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnneeUE_UE">
+    <End Role="UE" Type="Self.UE" Multiplicity="1" />
+    <End Role="AnneeUE" Type="Self.AnneeUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnneeUE">
+        <PropertyRef Name="idUE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_EC">
+    <End Role="EC" Type="Self.EC" Multiplicity="1" />
+    <End Role="Cours" Type="Self.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EC">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="idEC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_TypeCours">
+    <End Role="TypeCours" Type="Self.TypeCours" Multiplicity="1" />
+    <End Role="Cours" Type="Self.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCours">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="typeCoursID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departement_Composante">
+    <End Role="Composante" Type="Self.Composante" Multiplicity="1" />
+    <End Role="Departement" Type="Self.Departement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Composante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="composanteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplome_Departement">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="1" />
+    <End Role="Diplome" Type="Self.Diplome" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Diplome">
+        <PropertyRef Name="departementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EC_UE">
+    <End Role="UE" Type="Self.UE" Multiplicity="1" />
+    <End Role="EC" Type="Self.EC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EC">
+        <PropertyRef Name="ueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnseignantCours_Cours">
+    <End Role="Cours" Type="Self.Cours" Multiplicity="1" />
+    <End Role="EnseignantCours" Type="Self.EnseignantCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EnseignantCours">
+        <PropertyRef Name="idCours" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnseignantCours_Personnel">
+    <End Role="Personnel" Type="Self.Personnel" Multiplicity="1" />
+    <End Role="EnseignantCours" Type="Self.EnseignantCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EnseignantCours">
+        <PropertyRef Name="idEnseignant" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquivalentTD_Categorie">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="EquivalentTD" Type="Self.EquivalentTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EquivalentTD">
+        <PropertyRef Name="categorieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquivalentTD_TypeCours">
+    <End Role="TypeCours" Type="Self.TypeCours" Multiplicity="1" />
+    <End Role="EquivalentTD" Type="Self.EquivalentTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCours">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EquivalentTD">
+        <PropertyRef Name="typeCoursId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personnel_Categorie">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Personnel" Type="Self.Personnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personnel">
+        <PropertyRef Name="categorieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonnelDepartement_Departement">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="1" />
+    <End Role="PersonnelDepartement" Type="Self.PersonnelDepartement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PersonnelDepartement">
+        <PropertyRef Name="departementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonnelDepartement_Personnel">
+    <End Role="Personnel" Type="Self.Personnel" Multiplicity="1" />
+    <End Role="PersonnelDepartement" Type="Self.PersonnelDepartement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PersonnelDepartement">
+        <PropertyRef Name="personnelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ufrModelStoreContainer">
+    <EntitySet Name="Annee" EntityType="Self.Annee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnneeUE" EntityType="Self.AnneeUE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Composante" EntityType="Self.Composante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cours" EntityType="Self.Cours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departement" EntityType="Self.Departement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplome" EntityType="Self.Diplome" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EC" EntityType="Self.EC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnseignantCours" EntityType="Self.EnseignantCours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EquivalentTD" EntityType="Self.EquivalentTD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personnel" EntityType="Self.Personnel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonnelDepartement" EntityType="Self.PersonnelDepartement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCours" EntityType="Self.TypeCours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UE" EntityType="Self.UE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoursDepartement" EntityType="Self.CoursDepartement" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CoursDepartement].[coursID] AS [coursID], 
+    [CoursDepartement].[departementID] AS [departementID]
+    FROM [dbo].[CoursDepartement] AS [CoursDepartement]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UEDepartement" EntityType="Self.UEDepartement" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UEDepartement].[ueID] AS [ueID], 
+    [UEDepartement].[departementID] AS [departementID]
+    FROM [dbo].[UEDepartement] AS [UEDepartement]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Annee_Diplome" Association="Self.FK_Annee_Diplome">
+      <End Role="Diplome" EntitySet="Diplome" />
+      <End Role="Annee" EntitySet="Annee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnneeUE_Annee" Association="Self.FK_AnneeUE_Annee">
+      <End Role="Annee" EntitySet="Annee" />
+      <End Role="AnneeUE" EntitySet="AnneeUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnneeUE_UE" Association="Self.FK_AnneeUE_UE">
+      <End Role="UE" EntitySet="UE" />
+      <End Role="AnneeUE" EntitySet="AnneeUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_EC" Association="Self.FK_Cours_EC">
+      <End Role="EC" EntitySet="EC" />
+      <End Role="Cours" EntitySet="Cours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_TypeCours" Association="Self.FK_Cours_TypeCours">
+      <End Role="TypeCours" EntitySet="TypeCours" />
+      <End Role="Cours" EntitySet="Cours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departement_Composante" Association="Self.FK_Departement_Composante">
+      <End Role="Composante" EntitySet="Composante" />
+      <End Role="Departement" EntitySet="Departement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplome_Departement" Association="Self.FK_Diplome_Departement">
+      <End Role="Departement" EntitySet="Departement" />
+      <End Role="Diplome" EntitySet="Diplome" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EC_UE" Association="Self.FK_EC_UE">
+      <End Role="UE" EntitySet="UE" />
+      <End Role="EC" EntitySet="EC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnseignantCours_Cours" Association="Self.FK_EnseignantCours_Cours">
+      <End Role="Cours" EntitySet="Cours" />
+      <End Role="EnseignantCours" EntitySet="EnseignantCours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnseignantCours_Personnel" Association="Self.FK_EnseignantCours_Personnel">
+      <End Role="Personnel" EntitySet="Personnel" />
+      <End Role="EnseignantCours" EntitySet="EnseignantCours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquivalentTD_Categorie" Association="Self.FK_EquivalentTD_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="EquivalentTD" EntitySet="EquivalentTD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquivalentTD_TypeCours" Association="Self.FK_EquivalentTD_TypeCours">
+      <End Role="TypeCours" EntitySet="TypeCours" />
+      <End Role="EquivalentTD" EntitySet="EquivalentTD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personnel_Categorie" Association="Self.FK_Personnel_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Personnel" EntitySet="Personnel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonnelDepartement_Departement" Association="Self.FK_PersonnelDepartement_Departement">
+      <End Role="Departement" EntitySet="Departement" />
+      <End Role="PersonnelDepartement" EntitySet="PersonnelDepartement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonnelDepartement_Personnel" Association="Self.FK_PersonnelDepartement_Personnel">
+      <End Role="Personnel" EntitySet="Personnel" />
+      <End Role="PersonnelDepartement" EntitySet="PersonnelDepartement" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

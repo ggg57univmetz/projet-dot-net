@@ -7,16 +7,12 @@ Projet de M1 Informatique pour l'UE .NET à l'UFR MIM de Metz.
 
 Ouvrir le fichier projet-dot-net.sln avec [Visual Studio 2013](https://www.clubic.com/telecharger-fiche431273-visual-studio-community.html).
 
-J'ai généré les entités à partir de la base de donnée avec Entity Framework.
+La plus grosse partie du code se passe dans le Form1. C'est le contrôleur principal et il est très gros. J'ai essayé de l'organiser un peu pour pouvoir m'y retrouver donc essayez de garder l'ordre des méthodes.
+
+Pour le module complémentaire je pense que le mieux c'est d'ajouter un onglet dans le Form1.
 
 # Base de donnée
 
-J'ai effectué un export de ma base de donnée SQL Server dans le fichier export_db.sql.
+J'ai crée une base de donnée en ligne avec Azure pour qu'on n'ait pas besoin d'une base de donnée locale pour coder.
 
-J'ai aussi crée une base de donnée en ligne avec Azure pour qu'on n'ait pas besoin d'une base de donnée locale pour coder.
-
-Vous pouvez y accéder avec Microsoft SQL Server Management Studio avec les identifiants suivants : 
-
-    - Nom du serveur : projet-c-sharp.database.windows.net
-    - Connexion : csharp
-    - Mot de pase : sDO5480owyDpVQ7
+Vous pouvez y accéder via Microsoft SQL Server Management Studio avec les identifiants que je vous ai envoyé sur discord.

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ufrDataSet" targetNamespace="http://tempuri.org/ufrDataSet.xsd" xmlns:mstns="http://tempuri.org/ufrDataSet.xsd" xmlns="http://tempuri.org/ufrDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ufrConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ufrConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.projet_dot_net.Properties.Settings.GlobalReference.Default.ufrConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="personnel_dashboardTableAdapter" GeneratorDataComponentClassName="personnel_dashboardTableAdapter" Name="personnel_dashboard" UserDataComponentName="personnel_dashboardTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ufrConnectionString (Settings)" DbObjectName="ufr.dbo.personnel_dashboard" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Nom, Prénom, Catégorie, [Pourcentage du service], [Heures EQTD effectuées], [Heures EQTD à effectuer], departementID FROM dbo.personnel_dashboard</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nom" DataSetColumn="Nom" />
+              <Mapping SourceColumn="Prénom" DataSetColumn="Prénom" />
+              <Mapping SourceColumn="Catégorie" DataSetColumn="Catégorie" />
+              <Mapping SourceColumn="Pourcentage du service" DataSetColumn="Pourcentage du service" />
+              <Mapping SourceColumn="Heures EQTD effectuées" DataSetColumn="Heures EQTD effectuées" />
+              <Mapping SourceColumn="Heures EQTD à effectuer" DataSetColumn="Heures EQTD à effectuer" />
+              <Mapping SourceColumn="departementID" DataSetColumn="departementID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ufrDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ufrDataSet" msprop:Generator_UserDSName="ufrDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="personnel_dashboard" msprop:Generator_TableClassName="personnel_dashboardDataTable" msprop:Generator_TableVarName="tablepersonnel_dashboard" msprop:Generator_TablePropName="personnel_dashboard" msprop:Generator_RowDeletingName="personnel_dashboardRowDeleting" msprop:Generator_RowChangingName="personnel_dashboardRowChanging" msprop:Generator_RowEvHandlerName="personnel_dashboardRowChangeEventHandler" msprop:Generator_RowDeletedName="personnel_dashboardRowDeleted" msprop:Generator_UserTableName="personnel_dashboard" msprop:Generator_RowChangedName="personnel_dashboardRowChanged" msprop:Generator_RowEvArgName="personnel_dashboardRowChangeEvent" msprop:Generator_RowClassName="personnel_dashboardRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nom" msprop:Generator_ColumnVarNameInTable="columnNom" msprop:Generator_ColumnPropNameInRow="Nom" msprop:Generator_ColumnPropNameInTable="NomColumn" msprop:Generator_UserColumnName="Nom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prénom" msprop:Generator_ColumnVarNameInTable="columnPrénom" msprop:Generator_ColumnPropNameInRow="Prénom" msprop:Generator_ColumnPropNameInTable="PrénomColumn" msprop:Generator_UserColumnName="Prénom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Catégorie" msprop:Generator_ColumnVarNameInTable="columnCatégorie" msprop:Generator_ColumnPropNameInRow="Catégorie" msprop:Generator_ColumnPropNameInTable="CatégorieColumn" msprop:Generator_UserColumnName="Catégorie">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pourcentage_x0020_du_x0020_service" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPourcentage_du_service" msprop:Generator_ColumnPropNameInRow="Pourcentage_du_service" msprop:Generator_ColumnPropNameInTable="Pourcentage_du_serviceColumn" msprop:Generator_UserColumnName="Pourcentage du service" type="xs:double" minOccurs="0" />
+              <xs:element name="Heures_x0020_EQTD_x0020_effectuées" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHeures_EQTD_effectuées" msprop:Generator_ColumnPropNameInRow="Heures_EQTD_effectuées" msprop:Generator_ColumnPropNameInTable="Heures_EQTD_effectuéesColumn" msprop:Generator_UserColumnName="Heures EQTD effectuées" type="xs:double" minOccurs="0" />
+              <xs:element name="Heures_x0020_EQTD_x0020_à_x0020_effectuer" msprop:Generator_ColumnVarNameInTable="columnHeures_EQTD_à_effectuer" msprop:Generator_ColumnPropNameInRow="Heures_EQTD_à_effectuer" msprop:Generator_ColumnPropNameInTable="Heures_EQTD_à_effectuerColumn" msprop:Generator_UserColumnName="Heures EQTD à effectuer" type="xs:int" />
+              <xs:element name="departementID" msprop:Generator_ColumnVarNameInTable="columndepartementID" msprop:Generator_ColumnPropNameInRow="departementID" msprop:Generator_ColumnPropNameInTable="departementIDColumn" msprop:Generator_UserColumnName="departementID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
